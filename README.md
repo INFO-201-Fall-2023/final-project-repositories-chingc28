@@ -1,47 +1,41 @@
 # final-project-repositories-chingc28
 final-project-repositories-chingc28 created by GitHub Classroom
 
-ory Pitch
-Your project proposal will include a "story pitch" or "elevator pitch" where you will briefly describe (~500 words) A) what is the story you intend to tell/visualize and B) why that is an interesting and compelling story. Your pitch should make a clear argument about why someone would care about your story and why they might find it interesting. 
+Story:
 
-Some Advice: 
-How to tell if you have an original/interesting story idea? You should answer "yes" to the many of the questions below:
+Inspired by Hasan Minhaj's show 'Patriot Act', the story I intend to tell is how the expansion of American's fast food companies are contributing to health anomolies around the world. Often times, the world 'obesity' is associated with Americans due to the image of the 'American diet', which is composed of burgers, pizzas, and french fries. This diet, popularized by the influence of fast food chains, contributed to the rising obesity rate in America. But not a lot of discussion is around how globalization of these popular fast food chains have effected not only obesity, but heart diseases and diabetes around the world. It is important to recognize obesity isn't just based on lack of exercise alone but also the food you eat. While it's true that obesity is a multifaceted issue that can encompass poverty, food desert, income, and other factors related to daily lifestyle, this project aims to examine how fast food chains contributes to obesity not just through consumption but also its placements in communities compared to grocery stores or markets and how the food prices compared to local restaurants and eateries. In the episode 'How America is Causing Global Obesity', Hasan mentioned political influence of big brand name companies such as Coca Cola, trade deals, and popularization of high fructose corn syrup as some of the factors for obesity in countries such as Mexico and Brazil. In our analysis, we will only focus on fast food chains rather than products of individual companies (i.e. Coca Cola, Pepsi). The fast food chains that will be included in this analysis will be McDonald's, Starbucks, and Kentucky Fried Chicken (KFC). The health metrics that will be analyzed includes obesity, diabetes, and stroke. This project aims to tell a comprehensive story and visualization of the before and after the introduction of fast food chains and effects it has on the population's health outcomes. 
 
-1. Is this topic so new and original that you can't find any books written on the subject? 
 
-2. Does this topic deal with fundamental life issues such as death, love, sickness, money, careers, health -- issues that affect millions of people? 
+Data:
 
-3. Do you have a strong, central unifying theme? 
+Downloaded: https://ncdrisc.org/data-downloads-adiposity.html
+How was it collected? WHO Collaborating Centre on NCD Surveillance and Epidemiology at Imperial College London
+How many observations (rows) are in your data? 16801
+How many features (columns) are in the data? 34
 
-4. Can you state your theme in one sentence using an action verb? 
+Downloaded: https://www.statista.com/statistics/306915/countries-with-the-largest-number-of-starbucks-stores-worldwide/
+How was it collected? Statistica research department
+How many observations (rows) are in your data? 155
+How many features (columns) are in the data? 2
 
-5. Does your angle allow you to offer intelligent insight -- as opposed to saying something that is obvious, that's common sense or that people have read about many times? 
+Background Research/Inspiration: 
 
-6. Are there elements of drama or conflict to attract and sustain the reader? 
+https://www.youtube.com/watch?v=kmo6lZcdkO0&ab_channel=NetflixIsAJoke
+- Gave the inspiration that fast food is related to increasing obesity in other countries
+- Does not have statistics on specific fast food places 
 
-7. Does your theme question or contradict what most people think or assume? 
+https://news.umich.edu/supersized-market-economy-supersized-belly-wealthier-nations-have-more-fast-food-and-more-obesity/
+- Wealthier nations have more fast food places, may correlate to obesity 
+- Doesn't include non-wealthy countries, which is also necessary for the analysis 
 
- 
+https://www.nber.org/bah/2009no1/do-fast-food-restaurants-contribute-obesity
+- Fast food restaurants and its contribution to obesity 
+- Data may come from America only 
 
-Finding Data
-To start, you’ll need to find a dataset or datasets that are interesting and which you think will provide a fertile bed for an interesting or even newsworthy visualization-based story. Finding data can be very time consuming, so please start on this as soon as possible (you might start with https://app.enigma.io/searchLinks to an external site. or http://data.govLinks to an external site.). The data can be national or local, or something else entirely, but try to find something that might have some news value or interest.
+https://www.shortform.com/blog/fast-food-obesity/
+- Talks about global obesity and its relation to fast food 
+- Doesn't mention which specific fast food is included in its statistic
 
-Your final project will require you to work with two independent datasets that come from two independent sources.
-
-Example: 
-
-Bad: School enrollment dataset and school geospatial (lat/lng) location dataset both from the Department of Education.
-Good: Income per capita dataset and geographic shapes from the Census, and test score results and school geospatial location from the Department of Education.
-At this stage your group should identify and download two independent sources of data. In your project proposal, you will then describe both datasets by answering the following questions: 
-
-Where did you download the data (e.g., a web URL)?
-How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-How many observations (rows) are in your data?
-How many features (columns) are in the data?
- 
-
-Background Research/Inspiration
-Finally, your proposal should include sources of inspiration/background research that you've found on the web. These can be new articles, blog posts, or even interactive visualizations. In your proposal please include the following: 
-
-List no fewer than 5 URLs of articles and other web applications that share common goals and/or features with your proposed project idea.
-And for each of the 5 listed inspirations from above, write at least two bullet point items comparing and contrasting your project idea with the given inspiration.
+https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-019-0457-y
+- Talks about modernization vs. globalization and effect on obesity
+- Doesn't specifically talk about fast food directly
