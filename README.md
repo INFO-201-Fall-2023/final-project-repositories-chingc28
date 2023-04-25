@@ -1,41 +1,56 @@
 # final-project-repositories-chingc28
 final-project-repositories-chingc28 created by GitHub Classroom
 
-Story:
+Story
 
-Inspired by Hasan Minhaj's show 'Patriot Act', the story I intend to tell is how the expansion of American's fast food companies are contributing to health anomolies around the world. Often times, the world 'obesity' is associated with Americans due to the image of the 'American diet', which is composed of burgers, pizzas, and french fries. This diet, popularized by the influence of fast food chains, contributed to the rising obesity rate in America. But not a lot of discussion is around how globalization of these popular fast food chains have effected not only obesity, but heart diseases and diabetes around the world. It is important to recognize obesity isn't just based on lack of exercise alone but also the food you eat. While it's true that obesity is a multifaceted issue that can encompass poverty, food desert, income, and other factors related to daily lifestyle, this project aims to examine how fast food chains contributes to obesity not just through consumption but also its placements in communities compared to grocery stores or markets and how the food prices compared to local restaurants and eateries. In the episode 'How America is Causing Global Obesity', Hasan mentioned political influence of big brand name companies such as Coca Cola, trade deals, and popularization of high fructose corn syrup as some of the factors for obesity in countries such as Mexico and Brazil. In our analysis, we will only focus on fast food chains rather than products of individual companies (i.e. Coca Cola, Pepsi). The fast food chains that will be included in this analysis will be McDonald's, Starbucks, and Kentucky Fried Chicken (KFC). The health metrics that will be analyzed includes obesity, diabetes, and stroke. This project aims to tell a comprehensive story and visualization of the before and after the introduction of fast food chains and effects it has on the population's health outcomes. 
+Introduction:
+Wine has always been a popular beverage for centuries, and its popularity continues to grow worldwide. Some drink it for leisure and some drink it for the proposed health benefits associated with wine. No matter the reason, wine consumption has been on the rise. [In 2011, 2.7 gallons of wine on average were consumed per resident, totally 847 million gallons of wine consumed. A decade later, in 2021, these numbers increased to 3.18 gallons per resident with 1.1 billion gallons of wine consumed.](https://wineinstitute.org/our-industry/statistics/us-wine-consumption/) With innovative methods utilized in the wine industry to maintain consumer interest and garner attentions of curious drinkers, it is very clear that the demand and interest of wine will only continue to rise every year. The goal of this project is to analyze the relationship between wine prices, country of origin, vintage rating, and wine rating to determine which factors have the greatest impact on the price of a bottle of wine. This analysis will provide valuable insights for wine enthusiasts and investors alike.
+
+Our objectives are to:
+
+- Analyze the correlation between wine prices and their country of origin.
+- Examine the relationship between wine prices and vintage ratings.
+- Investigate the impact of wine ratings on wine prices.
+- Provide insights and recommendations for wine enthusiasts and investors.
+
+Methodology:
+To achieve the project objectives, R will be used to perform exploratory data analysis on the dataset and visualizations will be created to make the results easy to interpret. Regression analysis will also be performed to determine the factors that have the greatest impact on wine prices.
+
+Conclusion:
+This project aims to analyze the relationships between wine prices, country of origin, vintage rating, and wine rating. By examining these factors, the hope is to provide valuable insights into the factors that affect the price of a bottle of wine. This analysis will be useful for wine enthusiasts to make informed decisions on which wine is most worth their money and value. It will also be useful for investors looking to decide which winery to best invest their money. Businesses can also benefit from this data analysis by deciding which wine to produce, make, or if the price and quality of wine is competitive in the market.
 
 
-Data:
+Dataset 1 (Kaggle):
 
-Downloaded: https://ncdrisc.org/data-downloads-adiposity.html
-How was it collected? WHO Collaborating Centre on NCD Surveillance and Epidemiology at Imperial College London
-How many observations (rows) are in your data? 16801
-How many features (columns) are in the data? 34
+Downloaded: https://www.kaggle.com/datasets/zynicide/wine-reviews
+How was it collected or generated? By a user ZACKTHOUTT. The data is created by scraping the data off https://www.winemag.com/?s=&drink_type=wine and presenting it in a table.
+How many observations (rows) are in your data? 150,000 rows
+How many features (columns) are in the data? 10 columns
 
-Downloaded: https://www.statista.com/statistics/306915/countries-with-the-largest-number-of-starbucks-stores-worldwide/
-How was it collected? Statistica research department
-How many observations (rows) are in your data? 155
-How many features (columns) are in the data? 2
+Dataset 2 (Kaggle)
+Downloaded: https://www.kaggle.com/datasets/budnyak/wine-rating-and-price
+How was it collected? User scraped data from Vivino.com with wine in the categories Red, White, Rose, and Sparkling
+How many observations (rows) are in your data? Combined about 13,000 rows 
+How many features (columns) are in the data? 8 columns
 
 Background Research/Inspiration: 
 
-https://www.youtube.com/watch?v=kmo6lZcdkO0&ab_channel=NetflixIsAJoke
-- Gave the inspiration that fast food is related to increasing obesity in other countries
-- Does not have statistics on specific fast food places 
+https://www.wine-searcher.com/winespectator-top100
+- Lists the top 100 best wines by their vintage and wine rating. Region names are included in the wine name 
+- Doesn't include prices. Would be good to know the prices of this 
 
-https://news.umich.edu/supersized-market-economy-supersized-belly-wealthier-nations-have-more-fast-food-and-more-obesity/
-- Wealthier nations have more fast food places, may correlate to obesity 
-- Doesn't include non-wealthy countries, which is also necessary for the analysis 
+https://winefolly.com/deep-dive/the-10-most-popular-wines-in-the-world/
+- The most popular wines in the world, this includes country of origin and hectares of land dedicated to this wine
+- It doesn't include the vintage or its average price 
 
-https://www.nber.org/bah/2009no1/do-fast-food-restaurants-contribute-obesity
-- Fast food restaurants and its contribution to obesity 
-- Data may come from America only 
+https://winefolly.com/deep-dive/wine-vintages-and-why-they-matter/
+- Explains why vintages matter when it comes to flavor and the factors that effect vintage such as weather
+- Not very useful for understanding how vintages effects pricing
 
-https://www.shortform.com/blog/fast-food-obesity/
-- Talks about global obesity and its relation to fast food 
-- Doesn't mention which specific fast food is included in its statistic
+https://www.enbotella.com/en/blog/the-differences-between-red-white-and-rose-wine.html
+- Explains the difference between red, white, and rose wine. Provides insight into each of the wine's unique values
+- Not very relevant information when it comes to consumer ratings. However, would be good to look into which type of wine average higher or lower ratings
 
-https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-019-0457-y
-- Talks about modernization vs. globalization and effect on obesity
-- Doesn't specifically talk about fast food directly
+https://vinyang.com/blog/wine-by-country#:~:text=The%20top%20three%20wine%20producing,wine%20produced%20in%20the%20world.
+- Top 3 countries producing the world's wine are Italy, France, and Spain. Good insight to know
+- Brings up the question, are European wines more or less expensive on average than wine produced in the U.S ? 
