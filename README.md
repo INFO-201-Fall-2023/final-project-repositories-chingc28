@@ -22,14 +22,14 @@ This project aims to analyze the relationships between wine prices, country of o
 # Data
 Dataset 1: [Wine Reviews (Kaggle)](https://www.kaggle.com/datasets/zynicide/wine-reviews)
 
-How was it collected or generated? By a user ZACKTHOUTT. The data is created by scraping the data off https://www.winemag.com/?s=&drink_type=wine and presenting it in a table.
-How many observations (rows) are in your data? 150,000 rows
-How many features (columns) are in the data? 10 columns
+- How was it collected or generated? By a user ZACKTHOUTT. The data is created by scraping the data off [Wine Magazine](https://www.winemag.com/?s=&drink_type=wine) and presenting it in a table.
+- Total **rows** in data: 150,000 rows
+- Total **columns** in data: 10 columns
 
 Dataset 2: [Wine Rating and Price(Kaggle)](https://www.kaggle.com/datasets/budnyak/wine-rating-and-price)
-How was it collected? User scraped data from Vivino.com with wine in the categories Red, White, Rose, and Sparkling
-How many observations (rows) are in your data? Combined about 13,000 rows 
-How many features (columns) are in the data? 8 columns
+- How was it collected? User scraped data from Vivino.com with wine in the categories Red, White, Rose, and Sparkling
+- Total **rows** in data: Combined about 13,000 rows 
+- Total **columns** in data: 8 columns
 
 # Background Research/Inspiration: 
 
