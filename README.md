@@ -20,7 +20,7 @@ To achieve the project objectives, R will be used to perform exploratory data an
 This project aims to analyze the relationships between wine prices, country of origin, vintage rating, and wine rating. By examining these factors, the hope is to provide valuable insights into the factors that affect the price of a bottle of wine. This analysis will be useful for wine enthusiasts to make informed decisions on which wine is most worth their money and value. It will also be useful for investors looking to decide which winery to best invest their money. Businesses can also benefit from this data analysis by deciding which wine to produce, make, or if the price and quality of wine is competitive in the market.
 
 # Data
-Dataset 1: [Wine Reviews (Kaggle)](https://www.kaggle.com/datasets/zynicide/wine-reviews)
+Dataset 1: [Wine Reviews (data.world](https://data.world/arthur/wineries)
 
 - How was it collected or generated? By a user ZACKTHOUTT. The data is created by scraping the data off [Wine Magazine](https://www.winemag.com/?s=&drink_type=wine) and presenting it in a table.
 - Total **rows** in data: 150,000 rows
