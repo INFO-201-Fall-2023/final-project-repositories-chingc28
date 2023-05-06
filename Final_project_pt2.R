@@ -6,27 +6,51 @@
 
 library(dplyr)
 library(stringr)
+### data is from here 
 
-df_1 <- read.csv()
-df_2 <- read.csv()
+# disaster: https://www.kaggle.com/datasets/headsortails/us-natural-disaster-declarations
+# gdp: https://apps.bea.gov/regional/downloadzip.cfm
+# cost of disaster: https://www.kaggle.com/datasets/christinezinkand/us-billiondollar-weather-and-climate-disasters
 
 ### The code goes here
 
-df_1 <- read.csv('Red.csv')
-df_2 <- read.csv('Rose.csv')
-df_3 <- read.csv('Sparkling.csv')
-df_4 <- read.csv('White.csv')
+# reading csv files 
+gdp_df <- read.csv('SAGDP1__ALL_AREAS_1997_2022.csv')
+disaster_df <- read.csv('us_disaster_declarations.csv')
 
-types_df <- rbind(df_1, df_2, df_3, df_4)
+### cleaning up files before merging 
 
-ratings_df <- read.csv('winemag-data_first150k.csv')
+## disaster 
+# removing unwanted columns
+columns_dis <- names(disaster_df)
+unwanted <- c(columns_dis[9:23])
+disaster_df <- select(disaster_df, -unwanted)
 
-### The code goes here 
+# selecting incidents from 1997 and beyond and removing duplicates 
+disaster_df <- disaster_df[disaster_df$fy_declared >= 1997, ]
+disaster_df <- disaster_df[!duplicated(disaster_df$fema_declaration_string), ]
+disaster_df <- disaster_df[disaster_df$state != 'PR', ]
 
-# changing US to 'United States' to merge based on country
+# changing state abbreviation to state names 
 
-ratings_df$country <- gsub('US', 'United States', ratings_df$country)
+dis_names <- disaster_df$state
+dis_index <- match(dis_names, state.abb)
+letter_to_name <- state.name[dis_index]
+disaster_df$state <- letter_to_name
 
-# merging based on country, region, and winery 
+## gdp
+# removing unwanted columns
 
-# df <- merge(ratings_df, types_df, by.x = 'country', by.y = 'Country')
+columns_gdp <- names(gdp_df)
+unwanted_gdp <- c(columns_gdp[3:4])
+gdp_df <- select(gdp_df, -unwanted_gdp)
+
+# only selecting the rows that contain gdp values 
+
+gdp_df <- gdp_df[gdp_df$LineCode < 5, ]
+gdp_df <- gdp_df[gdp_df$LineCode != 2, ]
+gdp_df <- select(gdp_df, -names(gdp_df)[3:4])
+
+# joining both data, it is okay that there are duplicate columns of GDP 
+
+df <- right_join(gdp_df, disaster_df, by = c('GeoName' = 'state'))
