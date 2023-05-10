@@ -6,6 +6,7 @@
 
 library(dplyr)
 library(stringr)
+library(tidyr)
 ### data is from here 
 
 # disaster: https://www.kaggle.com/datasets/headsortails/us-natural-disaster-declarations
@@ -92,14 +93,47 @@ for (i in 1:nrow(df)){
 
 df$gdp_change <- gdp_overtime
 
-# write to csv file 
+########## write to csv file 
 write.csv(df, file = 'unified_dataframe.csv', row.names = FALSE)
 
-# summary table 
+########## summary table 
 # we want to create a summary table of each state and total weather events occured each year
-# however, we only want the rows with Real GDP cause we don't want repeat data
-# columns wanted: 'state', 'year', 'total storm', 'total compensation' gdp',
-# 'change in gdp from prev year'
-# second summary table: 'tornado alley states', 'year', 'tornado', 'change in tornado from prev yr'
 
+# summary columns: 'state', 'category: gdp or total storm' 'total hurricane', 'total severe storm' '1997', '1998'... etc 
+# we don't want biological values, covid isn't a weather event.
 
+# filtering 
+# we don't want covid19 incidents and only want gdp data rows
+weather_df <- filter(df, incident_type != 'Biological', LineCode == 1)
+
+# we want to groupby the state
+grouped_df <- group_by(weather_df, GeoName, fy_declared)
+sum_df <- summarize(grouped_df, sum_storm = n())
+
+# reshaping the dataframe 
+sum_df <- pivot_wider(sum_df, names_from = fy_declared, values_from = sum_storm)
+
+#add categories column 
+storm <- rep("storm", times = 50)
+sum_df$category <- storm 
+
+# sort the columns and put na values as 0 
+sum_df <- sum_df[, sort(colnames(sum_df))]
+sum_df <- sum_df[, c(ncol(sum_df), 1:(ncol(sum_df)-1))]
+sum_df[is.na(sum_df)] <- 0 
+
+# making a df for gdp, names(sum_df)[2:31] selects the relevant columns
+sum_gdp <- distinct(df, GeoName, .keep_all = TRUE)
+sum_gdp <- sum_gdp[, c(2, 7:32)]
+
+# renaming the column to merge
+years <- 1997:2022
+for (i in 2:27){
+  names(sum_gdp)[i] <- years[i - 1]
+}
+
+sum_df <- rbind(sum_df, sum_gdp)
+gdp_category <- rep('gdp', times = 50)
+sum_df[51:100, 'category'] <- gdp_category
+
+# im gonna deal with the NA values for the 2nd half of this summary table later 
