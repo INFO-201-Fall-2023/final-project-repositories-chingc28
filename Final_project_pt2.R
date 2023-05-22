@@ -7,6 +7,7 @@
 library(dplyr)
 library(stringr)
 library(tidyr)
+library(datasets)
 ### data is from here 
 
 # disaster: https://www.kaggle.com/datasets/headsortails/us-natural-disaster-declarations
@@ -137,3 +138,30 @@ gdp_category <- rep('gdp', times = 50)
 sum_df[51:100, 'category'] <- gdp_category
 
 # im gonna deal with the NA values for the 2nd half of this summary table later 
+
+assign_region <- function(state_name) {
+  # Create a lookup table for region assignments
+  region_lookup <- list(
+    West = c("Washington", "Oregon", "California", "Nevada", "Idaho", "Montana", "Wyoming", "Colorado", "Utah", "Arizona", "New Mexico", "Alaska", "Hawaii"),
+    Southwest = c("Texas", "Oklahoma", "New Mexico", "Arizona"),
+    Midwest = c("North Dakota", "South Dakota", "Nebraska", "Kansas", "Minnesota", "Iowa", "Missouri", "Wisconsin", "Illinois", "Michigan", "Indiana", "Ohio"),
+    Northeast = c("Maine", "New Hampshire", "Vermont", "Massachusetts", "Rhode Island", "Connecticut", "New York", "New Jersey", "Pennsylvania"),
+    Southeast = c("Delaware", "Maryland", "District of Columbia", "Virginia", "West Virginia", "North Carolina", "South Carolina", "Georgia", "Florida", "Kentucky", "Tennessee", "Mississippi", "Alabama")
+  )
+  
+  # Iterate through the regions and check if the state belongs to a region
+  for (region in names(region_lookup)) {
+    if (state_name %in% region_lookup[[region]]) {
+      return(region)
+    }
+  }
+
+  return("Unknown")  # If the state does not match any region, assign "Unknown"
+}
+
+df$region_name <- sapply(df$GeoName, assign_region)
+
+# gets rid of the X in the year columns 
+
+colnames(df) <- gsub("^X", "", colnames(df))
+
