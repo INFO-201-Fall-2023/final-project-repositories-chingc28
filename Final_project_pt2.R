@@ -94,6 +94,45 @@ for (i in 1:nrow(df)){
 
 df$gdp_change <- gdp_overtime
 
+# add region to the table
+assign_region <- function(state_name) {
+  # Create a lookup table for region assignments
+  region_lookup <- list(
+    West = c("Washington", "Oregon", "California", "Nevada", "Idaho", "Montana",
+             "Wyoming", "Colorado", "Utah", "Arizona", "New Mexico", "Alaska", "Hawaii"),
+    Southwest = c("Texas", "Oklahoma", "New Mexico", "Arizona", "Arkansas", "Louisiana"),
+    Midwest = c("North Dakota", "South Dakota", "Nebraska", "Kansas", "Minnesota", "Iowa",
+                "Missouri", "Wisconsin", "Illinois", "Michigan", "Indiana", "Ohio"),
+    Northeast = c("Maine", "New Hampshire", "Vermont", "Massachusetts", "Rhode Island",
+                  "Connecticut", "New York", "New Jersey", "Pennsylvania"),
+    Southeast = c("Delaware", "Maryland", "District of Columbia", "Virginia", "West Virginia",
+                  "North Carolina", "South Carolina", "Georgia", "Florida", "Kentucky",
+                  "Tennessee", "Mississippi", "Alabama")
+  )
+  
+  # Iterate through the regions and check if the state belongs to a region
+  for (region in names(region_lookup)) {
+    if (state_name %in% region_lookup[[region]]) {
+      return(region)
+    }
+  }
+  
+  return("Unknown")  # If the state does not match any region, assign "Unknown"
+}
+
+df$region_name <- sapply(df$GeoName, assign_region)
+
+# gets rid of the X in the year columns 
+
+colnames(df) <- gsub("^X", "", colnames(df))
+
+### adding carbon emissions to each state since 1997 - 2020 
+
+carbon_df <- read.csv("Carbon emission by state.csv")
+colnames(carbon_df) <- gsub("^X", "", colnames(carbon_df))
+carbon_df <- carbon_df[, c(1, 29:52)]
+
+
 ########## write to csv file 
 write.csv(df, file = 'unified_dataframe.csv', row.names = FALSE)
 
@@ -136,32 +175,30 @@ for (i in 2:27){
 sum_df <- rbind(sum_df, sum_gdp)
 gdp_category <- rep('gdp', times = 50)
 sum_df[51:100, 'category'] <- gdp_category
+colnames(sum_df)[1] <- "State"
 
-# im gonna deal with the NA values for the 2nd half of this summary table later 
+# combining carbon output into the sum
 
-assign_region <- function(state_name) {
-  # Create a lookup table for region assignments
-  region_lookup <- list(
-    West = c("Washington", "Oregon", "California", "Nevada", "Idaho", "Montana", "Wyoming", "Colorado", "Utah", "Arizona", "New Mexico", "Alaska", "Hawaii"),
-    Southwest = c("Texas", "Oklahoma", "New Mexico", "Arizona"),
-    Midwest = c("North Dakota", "South Dakota", "Nebraska", "Kansas", "Minnesota", "Iowa", "Missouri", "Wisconsin", "Illinois", "Michigan", "Indiana", "Ohio"),
-    Northeast = c("Maine", "New Hampshire", "Vermont", "Massachusetts", "Rhode Island", "Connecticut", "New York", "New Jersey", "Pennsylvania"),
-    Southeast = c("Delaware", "Maryland", "District of Columbia", "Virginia", "West Virginia", "North Carolina", "South Carolina", "Georgia", "Florida", "Kentucky", "Tennessee", "Mississippi", "Alabama")
-  )
-  
-  # Iterate through the regions and check if the state belongs to a region
-  for (region in names(region_lookup)) {
-    if (state_name %in% region_lookup[[region]]) {
-      return(region)
-    }
-  }
+carbon <- rep("carbon", time = 54)
+carbon_df$category <- carbon
+carbon_df <- carbon_df[-c(9,52,53,54),]
+carbon_df$`2021` <- rep(0, nrow(carbon_df))
+carbon_df$`2022` <- rep(0, nrow(carbon_df))
+carbon_df[, c(2:3, 5, 7:25)] <- lapply(carbon_df[, c(2:3, 5, 7:25)], as.numeric)
+sum_df <- rbind(sum_df, carbon_df)
 
-  return("Unknown")  # If the state does not match any region, assign "Unknown"
-}
+# add a region in the summary table 
 
-df$region_name <- sapply(df$GeoName, assign_region)
+sum_df <- left_join(sum_df, df[, c(2, 42)], by = c("State" = "GeoName"))
+sum_df <- unique(sum_df)
+sum_df <- sum_df[-101, ]
 
-# gets rid of the X in the year columns 
 
-colnames(df) <- gsub("^X", "", colnames(df))
+
+### writing to csv 
+
+write.csv(sum_df, file = 'sum_df.csv', row.names = FALSE)
+
+
+#################### testing 
 
