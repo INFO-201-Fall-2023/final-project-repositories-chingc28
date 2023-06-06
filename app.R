@@ -24,6 +24,85 @@ region_sum <- as.data.frame(region_sum)
 
 ####### Code for scrollytelling 
 
+intro <- tabPanel("Introduction",
+                  imageOutput("title_img"),
+                  br(),
+                  h2("Understanding Climate Change: Weather, Impacts, and the Economy"),
+                  br(),
+                  p("Climate change is a pressing global issue that has far-reaching consequences
+                    for our planet. The gradual rise in global surface temperatures has already
+                    begun to impact weather patterns, resulting in a higher frequency of droughts
+                    and more intense storms. Impacts of climate change are numerous, ranging from ocean acidification, weather, lung disease, to
+                    crops yield. This interactive website focuses on weather patterns and 
+                    aims to help visualize effects of climate
+                    change on weather, carbon output, and its potential impact on our state, region,
+                    and nationwide economy."),
+                  br(),
+                  h2("How Are Climate Change and Weather Related?"),
+                  p("One of the key ways climate change influences weather events is through
+                    the increased availability of water vapor in the atmosphere. As temperatures
+                    rise, more water is evaporated into the air, creating a potent fuel source for
+                    the formation of powerful storms. Warmer ocean surface temperatures and
+                    heightened atmospheric heat contribute to the intensification of wind speeds
+                    in tropical storms, leading to more destructive hurricanes and cyclones.
+                    Furthermore, rising sea levels expose coastal regions to greater risks,
+                    causing unprecedented erosion and posing a threat to vulnerable ecosystems."),
+                  br(),
+                  h4("Difference Between Weather and Climate"),
+                  p("It is crucial to distinguish between weather and climate. Weather refers to the day-to-day atmospheric conditions,
+                    such as temperature, precipitation, and wind patterns. On the other hand, climate
+                    encompasses the long-term average of weather patterns in a specific region over a
+                    considerable period. Climate change refers to the sustained alterations in climate
+                    patterns over time, often resulting from human activities and natural factors."),
+                  br(),
+                  p("For example, 95% chance of rain on Wednesday evening over the city of Seattle refers to weather.
+                    The city of Seattle receiving average 10 inches of rain in the month of October for the past 10 years
+                    refers to climate."),
+                  br(),
+                  h2("Climate Change Indicators"),
+                  p("To better understand and monitor climate change, the Environmental Protection Agency
+                    (EPA) has developed over 50 climate change indicators that track changes over time. These
+                    indicators cover various aspects, including the shrinking of glaciers, greenhouse gas
+                    emissions, wildfires, and fluctuations in lake temperatures, among others. These indicators
+                    provide valuable insights into the ongoing shifts in our climate and help inform policies
+                    and actions to mitigate its impacts. More can be found on the", a("EPA site", href = "https://www.epa.gov/climate-indicators/view-indicators", ".")),
+                  br(),
+                  imageOutput("carbon_img"),
+                  h2("Role of Carbon Dioxide (CO2) in Emissions"),
+                  p("Human activities play a significant role in climate change, primarily through the
+                    emission of greenhouse gases. Carbon dioxide (CO2) is the primary greenhouse gas
+                    released as a result of human activities. In 2021, CO2 accounted for 79% of all U.S.
+                    greenhouse gas emissions attributed to human activities. While carbon dioxide occurs
+                    naturally in the atmosphere as part of the Earth's carbon cycle, human actions have
+                    disrupted this balance. Industrial processes and the burning of fossil fuels have led to a
+                    significant increase in CO2 levels, affecting the planet's ability to regulate its climate."),
+                  h2("Climate Change Impact on the Economy"),
+                  p("Rising temperatures and the effects of climate change could have significant economic
+                  implications globally.According to a report made by the White House in 2023, the cost of climate
+                  and weather disasters in the United States last year (2022) totaled more than $165 billion—the third most
+                  costly year on record.  Swiss Re, a major insurance company, warned that by 2050, crop yield reductions,
+                    the spread of diseases, and rising sea levels could lead to a significant decrease in global wealth.
+                    The company projected that climate change could reduce global economic output by 11% to 14% compared to
+                    growth levels without climate change, which amounts to as much as $23 trillion annually.
+                    If the goal of holding global temperature increase to less than 2 degree Celsius above preindustrial levels,
+                    economic losses by 2050 would be marginal. However,", tags$b("current emissions levels are far from the target 2 degrees.
+                    In fact, it is projected that global temperatures are likely to increase as much as 2.6 degrees based on current
+                    calculations"), ". If that were to occur, the economy of the United States would be as much as 7% smaller than what it
+                    could be without climate change impact. For reference 7% of the U.S. 2022 GDP is $1.78 trillion. It is crucial
+                    to mitigate climate change as much as possible to minimize effects on economic output, which would then
+                    cascade into people's livelihoods and quality of living"), 
+                  br(),
+                  tags$strong("Sources"),
+                  p("New York Times:", a("Climate Change Could Cut World Economy by $23 Trillion in 2050, Insurance Giant Warns",
+                                         href = "https://www.nytimes.com/2021/04/22/climate/climate-change-economy.html")),
+                  p("The White House:", a("The Importance of Measuring the Fiscal and Economic Costs of Climate Change",
+                                          href = "https://www.whitehouse.gov/omb/briefing-room/2023/03/14/the-importance-of-measuring-the-fiscal-and-economic-costs-of-climate-change/")),
+                  p("USGS, US Dept of Interior: ", a("How can climate change affect natural disasters?",
+                                                     href = "https://www.usgs.gov/faqs/how-can-climate-change-affect-natural-disasters")),
+                  p("EPA:", a("Overview of Greenhouse Gases", href = "https://www.epa.gov/ghgemissions/overview-greenhouse-gases")),
+                  br()
+                  )
+
 state_level <- tabPanel("State Level",
                         sidebarLayout(
                           sidebarPanel(
@@ -96,12 +175,52 @@ national_level <- tabPanel("National Level",
                            ))
 
 about_me <- tabPanel("About",
-                     h1("About Us"),
-                     p("text goes here"))
-                      
+                     h1("About Me"),
+                     h4("This project was inspired by ATMS111- Global Warming: Understanding the Issues, a
+                        class taught at the University of Washington- Seattle. The course presented a broad overview
+                        of impact of climate change on a global, regional, and local scale. As well as the impact
+                        on social, societal, economic, and health impact. It was a wonderful course that taught me
+                        different ways to think about climate change. The most crucial part of mitigating climate
+                        change is lowering greenhouse gas emission, especially CO2 released by humans."),
+                     h4("I hope that after analyzing storm events, weather output, and GDP on a state, regional, and national level,
+                        people can have a better idea of where we as a country currently are when it comes to our impact on
+                        CO2 output."),
+                     br(), 
+                     h4("A question that often arises when it comes to reducing GHG or climate change is clean energy.
+                        Although this app doesn't include information about energy use, I have previously created a visualization
+                        regarding clean energy sources (e.g. hydroelectric) vs. GHG-releasing energy sources (e.g. coal) and 
+                        an analysis of energy output by state vs. nationwide. The visualizer can be found here on the",
+                        a("Tableau", href = "https://public.tableau.com/app/profile/ching.chiu5208/viz/US_Energy/Story1"), "webpage
+                        It is interactive as well, feel free to click through to satisfy your curiosities"),
+                     h5("Here is the GitHub Repo:", a("Link- Ching Chiu", href = "https://github.com/INFO-201-Fall-2023/final-project-repositories-chingc28")),
+                     br(),
+                     h4("In the introduction, it mentioned that the Paris Climate Agreement urges nations to help
+                        keep rising global temperature by maximum 2 degrees by the year 2050. It is projected to rise
+                        by 2.6 degrees by most experts. However, it is hard to comprehend how even a 0.1 degree Celsius
+                        difference can change the world. This excellent video by", a("The Economist", href = "https://www.youtube.com/watch?v=uynhvHZUOOo&ab_channel=TheEconomist"),
+                        "talks about a world under a 3 degree global warming."),
+                     br(),
+                     h4("Here is another great article that talks about the difference between 1.5, 2, and 3 degree global warming. The
+                        article is by", a("Global Citizen", href = "https://www.globalcitizen.org/en/content/the-difference-in-global-warming-levels-explained/")),
+                     br(),
+                     imageOutput("EPA_img"),
+                     tags$em("This graph shows 2100 global temperature rise projection under different degree warming scenarios. Best case scenario,
+                             at RCP2.5 warming, global temperature would only rise by 0.5C. At worst case scenario, RCP 8.5, also known as 'business as
+                             usual' scenario where no climate change policy are adopted, the global temperature rise would be from 3 to 5 degrees
+                             Celsius. Source(", a("EPA, Future of Climate Change", href = "https://climatechange.chicago.gov/climate-change-science/future-climate-change"), ")"),
+                     h4("To learn further more about climate change projections, impact, and future outlooks, visit the IPCC webpage. IPCC
+                        is a division of the UN made for assessing science related to climate change. They release a report every year, since 2016, where they
+                        assess scenarios under different warming conditions and address the likelihoods of these scenarios. The yearly reports are dense and long,
+                        however there are summaries that are easy to understand."),
+                     h4("Here is the", a("IPCC report for the year of 2022", href = "https://www.ipcc.ch/report/ar6/wg2/")),
+                     br(),
+)
+
+
 
 ####
 ui <- navbarPage("US Storms vs. Economy Over the Years",
+                 intro,
                  state_level,
                  regional_level,
                  national_level,
@@ -112,12 +231,14 @@ server <- function(input, output) {
   output$state_storm_text <- renderText({
   
   selected_state <- input$state
-  filtered_df <- filter(df, LineCode == 1, GeoName == selected_state, incident_type != 'Biological', incident_type != "Dam/Levee Break", !is.na(incident_type))
+  filtered_df <- filter(df, LineCode == 1, GeoName == selected_state, incident_type != 'Biological', incident_type != "Dam/Levee Break", incident_type != "Terrorist", !is.na(incident_type))
   storm_events <- nrow(filtered_df)
-  freq_table <- table(df[df$GeoName == selected_state & df$incident_type != c("Biological", "Dam/Levee Break") & !is.na(df$incident_type), "incident_type"])
+  freq_table <- table(filtered_df$incident_type)
   max_storm_type <- names(freq_table)[which.max(freq_table)]
   storm_list <- unique(filtered_df[,"incident_type"])
-  max_storm_num <- nrow(df[df$GeoName == selected_state & df$incident_type == max_storm_type & df$LineCode == 1, ])
+  max_storm_num <- nrow(filter(df, GeoName == selected_state, incident_type == max_storm_type, LineCode == 1))
+  
+    # nrow(df[df$GeoName == selected_state & df$incident_type == max_storm_type & df$LineCode == 1, ])
   
   # Generate the text
   text <- paste("From 1997 to 2022, ", selected_state, " has experienced ", storm_events,
@@ -222,8 +343,6 @@ server <- function(input, output) {
     scatter <- ggplot(region_sum, aes(x = State, y = Sum)) + 
       geom_point(aes(size = Sum, col = region_name)) +
       coord_flip() +
-      theme(plot.margin = margin(50, 100, 50, 50)) +
-      theme(aspect.ratio = ) +
       labs(
         title = "Regional Weather Total",
         x = 'State',
@@ -412,6 +531,27 @@ server <- function(input, output) {
       coord_cartesian(ylim = c(0, max(sum_values$Value)))
     
   })
+  
+  output$title_img <- renderImage({
+    
+    list(src = "www/Effects-tryptich.jpeg",
+         width = "100%",
+         height = "100%")
+  }, deleteFile = F)
+  
+  output$carbon_img <- renderImage({
+    
+    list(src = "www/Greenhouse-effect.jpg",
+         width = "40%",
+         height = "100%")
+  }, deleteFile = F)
+  
+  output$EPA_img <- renderImage({
+    
+    list(src = "www/chicago_img.jpg",
+         width = "30%",
+         height = "100%")
+  }, deleteFile = F)
 
 }
 
