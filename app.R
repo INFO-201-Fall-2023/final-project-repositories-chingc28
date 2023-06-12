@@ -8,6 +8,7 @@ library(plotly)
 library(tidyr)
 
 theme_set(theme_minimal())
+
 ##### Loading the data 
 main_df <- read.csv("sum_df.csv")
 
@@ -22,7 +23,7 @@ region_sum <- main_df %>%
 
 region_sum <- as.data.frame(region_sum)
 
-####### Code for scrollytelling 
+####### Code for app
 
 intro <- tabPanel("Introduction",
                   imageOutput("title_img"),
