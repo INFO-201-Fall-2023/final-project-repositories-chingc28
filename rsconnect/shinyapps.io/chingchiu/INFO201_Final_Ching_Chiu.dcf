@@ -5,9 +5,9 @@ account: chingchiu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 9248255
-bundleId: 7313019
+bundleId: 7314470
 url: https://chingchiu.shinyapps.io/INFO201_Final_Ching_Chiu/
-when: 1686084896.91094
-lastSyncTime: 1686084896.91098
+when: 1686111617.2068
+lastSyncTime: 1686111617.20681
 asMultiple: FALSE
 asStatic: FALSE

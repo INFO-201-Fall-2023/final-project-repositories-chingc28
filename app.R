@@ -238,7 +238,6 @@ server <- function(input, output) {
   storm_list <- unique(filtered_df[,"incident_type"])
   max_storm_num <- nrow(filter(df, GeoName == selected_state, incident_type == max_storm_type, LineCode == 1))
   
-    # nrow(df[df$GeoName == selected_state & df$incident_type == max_storm_type & df$LineCode == 1, ])
   
   # Generate the text
   text <- paste("From 1997 to 2022, ", selected_state, " has experienced ", storm_events,
